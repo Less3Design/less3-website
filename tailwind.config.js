@@ -10,6 +10,7 @@ module.exports = {
         containerBlack: "enterBlack .65s cubic-bezier(0.87, 0, 0.13, 1)",
         heartEnter: "heartEnter 0.8s cubic-bezier(0.87, 0, 0.13, 1)",
         whiteFlash: "whiteFlash 0.4s .4s ease-in",
+        hideAfter: "hideAfter 0.6s linear",
       },
       keyframes: {
         enterWhite: {
@@ -37,6 +38,10 @@ module.exports = {
         blurFade: {
           "0%": { backdropFilter: "blur(32px)" },
           "100%": { backdropFilter: "blur(0px)" },
+        },
+        hideAfter: {
+          "0%": { opacity: "100" },
+          "100%": { opacity: "100" },
         },
       },
     },
