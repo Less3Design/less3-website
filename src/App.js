@@ -41,13 +41,13 @@ function App() {
         </div>
 
         {/* Temp under cunstruction*/}
-        <div className="absolute inset-0 text-white flex items-center justify-center pointer-events-none gap-2">
-          <div className="flex gap-2 bg-[#FBFF33]/50 backdrop-blur-3xl items-center justify-center px-6 py-4">
-            <Heart className="h-8 fill-[#FBFF33]" />
-            <div className="font-bold text-4xl text-[#FBFF33]">
+        <div className="absolute inset-0 text-white flex items-center justify-center pointer-events-none gap-0">
+          <div className="flex gap-2 bg-[#FBFF33]/30 backdrop-blur-3xl items-center justify-center px-0 py-2">
+            <Heart className="h-4 fill-[#FBFF33]" />
+            <div className="font-bold text-xl text-[#FBFF33]">
               Site Under Construction
             </div>
-            <Heart className="h-8 fill-[#FBFF33]" />
+            <Heart className="h-4 fill-[#FBFF33]" />
           </div>
         </div>
 
