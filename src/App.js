@@ -3,7 +3,6 @@ import BlockButton from "./Components/BlockButton";
 import { ReactComponent as Heart } from "./Less3Heart.svg";
 
 function App() {
-  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <div className="App">
