@@ -63,7 +63,14 @@ function App() {
           )}
           {!showAbout && (
             <>
-              <BlockButton active={false} color="blue" isLink={true}>
+              <BlockButton
+                active={false}
+                color="blue"
+                isLink={true}
+                onClick={() => {
+                  window.open("https://assetstore.unity.com/packages/slug/295634", "_blank").focus();
+                }}
+              >
                 ASSET STORE
               </BlockButton>
               <BlockButton active={true} color="white" isLink={false}>
