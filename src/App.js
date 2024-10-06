@@ -1,48 +1,76 @@
 import "./App.css";
 import BlockButton from "./Components/BlockButton";
 import { ReactComponent as Heart } from "./Less3Heart.svg";
+import React, { useState } from "react";
 
 function App() {
+  const [showAbout, setShowAbout] = useState(true);
 
   return (
     <div className="App">
       <div className="m-8 rounded-[32px] bg-black absolute left-0 right-0 top-0 bottom-0 overflow-clip animate-containerEnter">
         {/* Top Left*/}
+        {!showAbout && (
+          <>
+            <img
+              src={"homepage2.png"}
+              className="absolute w-full h-full shrink-0 object-cover animate-containerWhite"
+            ></img>
+          </>
+        )}
+
         <img
           src="homepage1.png"
-          className="w-full h-full shrink-0 object-cover opacity-80 blur-[4px] hover:blur-0 hover:opacity-100 transition-all duration-1000 ease-in-out"
+          className="w-full h-full shrink-0 object-cover transition-all duration-1000 ease-in-out"
         ></img>
+
         <div className="absolute left-16 top-16 gap-4 grid">
-          <BlockButton active={true} color="white">
-            ABOUT
+          <BlockButton
+            active={showAbout}
+            color="white"
+            onClick={() => setShowAbout(true)}
+          >
+            LESS_3
           </BlockButton>
-          <div className="h-1" />
-          <BlockButton active={false} color="white">
+          <BlockButton
+            active={!showAbout}
+            color="white"
+            onClick={() => setShowAbout(false)}
+          >
             SCENE_COMMENTS
-          </BlockButton>
-          <BlockButton active={false} color="white">
-            FORCE_GRAPH
-          </BlockButton>
-          <BlockButton active={false} color="white">
-            CONTROL_CENTER
-          </BlockButton>
-          <BlockButton active={false} color="white">
-            OTHER_THING
           </BlockButton>
         </div>
 
-        {/* Bottom Left*/}
-        <div className="absolute left-16 bottom-16 px-9 py-6 bg-black text-white font-bold text-8xl select-none">
-          LESS 3
-        </div>
-        {/* Bottom Right*/}
-        <div className="absolute right-16 bottom-16 gap-4 grid justify-items-end">
-          <BlockButton active={false} color="blue" isLink={true}>
-            ASSET STORE
-          </BlockButton>
-          <BlockButton active={false} color="orange" isLink={true}>
-            DOCMENTATION
-          </BlockButton>
+        <div className="absolute left-16 bottom-16 gap-4 grid">
+          {/* Bottom Left*/}
+          {showAbout && (
+            <>
+              <BlockButton
+                active={false}
+                color="orange"
+                isLink={true}
+                onClick={() => {
+                  navigator.clipboard.writeText("hello@less3.design");
+                  alert("hello@less3.design copied to clipboard!");
+                }}
+              >
+                CONTACT
+              </BlockButton>
+              <BlockButton active={true} color="white" isLink={false}>
+                Studio creating games and tools for the Unity engine
+              </BlockButton>
+            </>
+          )}
+          {!showAbout && (
+            <>
+              <BlockButton active={false} color="blue" isLink={true}>
+                ASSET STORE
+              </BlockButton>
+              <BlockButton active={true} color="white" isLink={false}>
+                Leave notes and comments on Unity scenes
+              </BlockButton>
+            </>
+          )}
         </div>
 
         {/* Temp under cunstruction
