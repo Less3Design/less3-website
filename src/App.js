@@ -45,17 +45,21 @@ function App() {
           {/* Bottom Left*/}
           {showAbout && (
             <>
-              <BlockButton
-                active={false}
-                color="orange"
-                isLink={true}
-                onClick={() => {
-                  navigator.clipboard.writeText("hello@less3.design");
-                  alert("hello@less3.design copied to clipboard!");
-                }}
-              >
-                CONTACT
-              </BlockButton>
+              <div className="flex">
+                <BlockButton
+                  active={false}
+                  color="orange"
+                  isLink={false}
+                  isCopy={true}
+                  onClick={() => {
+                    navigator.clipboard.writeText("hello@less3.design");
+                    alert("hello@less3.design copied to clipboard!");
+                  }}
+                />
+                <div className="px-6 py-4 h-16 bg-[#FD6D40] text-2xl font-bold text-black text-nowrap w-min select-text">
+                  hello@less3.design
+                </div>
+              </div>
               <BlockButton active={true} color="white" isLink={false}>
                 Studio creating games and tools for the Unity engine
               </BlockButton>
@@ -68,7 +72,12 @@ function App() {
                 color="blue"
                 isLink={true}
                 onClick={() => {
-                  window.open("https://assetstore.unity.com/packages/slug/295634", "_blank").focus();
+                  window
+                    .open(
+                      "https://assetstore.unity.com/packages/slug/295634",
+                      "_blank"
+                    )
+                    .focus();
                 }}
               >
                 ASSET STORE
