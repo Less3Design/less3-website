@@ -1,10 +1,23 @@
 import "./App.css";
 import BlockButton from "./Components/BlockButton";
 import { ReactComponent as Heart } from "./Less3Heart.svg";
-import React from "react";
+import React, { useState } from "react";
 import ParallaxImage from "./Components/ParallaxImage";
 
 function App() {
+  const [showToast, setShowToast] = useState(false);
+  const [toastDismissing, setToastDismissing] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("hello@less3.design");
+    setShowToast(true);
+    setToastDismissing(false);
+    setTimeout(() => {
+      setToastDismissing(true);
+      setTimeout(() => setShowToast(false), 600);
+    }, 2500);
+  };
+
   return (
     <div className="App">
       <div className="m-4 rounded-[0px] bg-black absolute left-0 right-0 top-0 bottom-0 overflow-clip animate-containerEnter">
@@ -16,25 +29,26 @@ function App() {
         />
 
         <ParallaxImage
-          strength={10}
-          src={"bg_f.png"}
-          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite select-none"
-        />
-
-        <ParallaxImage
-          strength={20}
+          strength={7}
           src={"bg_sf.png"}
           className="absolute w-full h-full shrink-0 object-cover animate-containerWhite blur-[1px] select-none"
         />
 
         <ParallaxImage
-          strength={30}
+          strength={10}
+          src={"bg_f.png"}
+          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite select-none"
+        />
+
+
+        <ParallaxImage
+          strength={16}
           src={"bg_ssf.png"}
           className="absolute w-full h-full shrink-0 object-cover animate-containerWhite blur-[16px] select-none"
         />
 
         <ParallaxImage
-          strength={40}
+          strength={30}
           src={"bg_flare.png"}
           className="absolute w-full h-full shrink-0 object-cover animate-containerWhite blur-[32px] select-none"
           style={{ mixBlendMode: "screen" }}
@@ -85,16 +99,20 @@ function App() {
             </div>
           </div>
           <div className="flex">
-            <BlockButton
-              onClick={() => {
-                navigator.clipboard.writeText("hello@less3.design");
-                alert("hello@less3.design copied to clipboard!");
-              }}
-            />
+            <BlockButton onClick={handleCopy} />
             <div className="bg-less3-gray/50 px-6 py-4 h-16 text-[24px] font-bold text-less3-pink text-nowrap w-min select-text flex items-center justify-center drop-shadow-[0_0_35px_#FF8DFD80] backdrop-blur-3xl bg-white/10">
               GET IN TOUCH
             </div>
           </div>
+          {showToast && (
+            <div
+              className={`bg-less3-gray/30 backdrop-blur-3xl text-less3-pink text-[20px] font-bold px-4 py-2 w-fit ${
+                toastDismissing ? "animate-toastOut" : "animate-toastIn"
+              }`}
+            >
+              <span className="italic">hello@less3.design</span> copied to clipboard!
+            </div>
+          )}
         </div>
 
         {/* Enter animation stuff below */}

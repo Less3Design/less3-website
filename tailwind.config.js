@@ -15,6 +15,8 @@ module.exports = {
         heartEnter: "heartEnter 0.8s cubic-bezier(0.87, 0, 0.13, 1)",
         whiteFlash: "whiteFlash 0.4s .4s ease-in",
         hideAfter: "hideAfter 0.6s linear",
+        toastIn: "toastIn 0.3s ease-out forwards",
+        toastOut: "toastOut 0.3s ease-in forwards",
       },
       keyframes: {
         enterWhite: {
@@ -46,6 +48,14 @@ module.exports = {
         hideAfter: {
           "0%": { opacity: "100" },
           "100%": { opacity: "100" },
+        },
+        toastIn: {
+          "0%": { opacity: "0", transform: "translateY(-8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        toastOut: {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(8px)" },
         },
       },
     },
