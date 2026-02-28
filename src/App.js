@@ -4,114 +4,81 @@ import { ReactComponent as Heart } from "./Less3Heart.svg";
 import React, { useState } from "react";
 
 function App() {
-  const [showAbout, setShowAbout] = useState(true);
-
   return (
     <div className="App">
-      <div className="m-8 rounded-[32px] bg-black absolute left-0 right-0 top-0 bottom-0 overflow-clip animate-containerEnter">
-        {/* Top Left*/}
-        {!showAbout && (
-          <>
-            <img
-              src={"homepage2.png"}
-              className="absolute w-full h-full shrink-0 object-cover animate-containerWhite"
-            ></img>
-          </>
-        )}
-
+      <div className="m-8 rounded-[0px] bg-black absolute left-0 right-0 top-0 bottom-0 overflow-clip animate-containerEnter">
+        {/* BG image*/}
         <img
-          src="homepage1.png"
-          className="w-full h-full shrink-0 object-cover transition-all duration-1000 ease-in-out"
+          src={"bg.jpg"}
+          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite"
         ></img>
 
+        {/* Little corner bits*/}
+        <div className="absolute left-0 bottom-0 w-[16px] h-[8px] bg-less3-pink"></div>
+        <div className="absolute left-0 bottom-0 w-[8px] h-[16px] bg-less3-pink"></div>
+
+        {/* Right Marquee*/}
+        <div className="absolute right-0 top-0 bottom-0 w-[41px] bg-less3-pink">
+        <div className="w-full h-full overflow-hidden relative">
+          <div
+            className="absolute left-0 w-full h-[200%] animate-marquee-vertical-reverse"
+            style={{
+              backgroundImage: "url('tiling.png')",
+              backgroundRepeat: "repeat",
+              backgroundSize: "41px 19px",
+              top: "-50%",
+            }}
+          ></div>
+          <style>
+            {`
+              @keyframes marquee-vertical-reverse {
+                0% {
+                  top: -50%;
+                }
+                100% {
+                  top: 0;
+                }
+              }
+              .animate-marquee-vertical-reverse {
+                animation: marquee-vertical-reverse 40s linear infinite;
+              }
+            `}
+          </style>
+        </div>
+
+        </div>
+
+        {/* Top Left*/}
         <div className="absolute left-16 top-16 gap-4 grid">
-          <BlockButton
-            active={showAbout}
-            color="white"
-            onClick={() => setShowAbout(true)}
-          >
-            LESS_3
-          </BlockButton>
-          <BlockButton
-            active={!showAbout}
-            color="white"
-            onClick={() => setShowAbout(false)}
-          >
-            SCENE_COMMENTS
-          </BlockButton>
-        </div>
-
-        <div className="absolute left-16 bottom-16 gap-4 grid">
-          {/* Bottom Left*/}
-          {showAbout && (
-            <>
-              <div className="flex">
-                <BlockButton
-                  active={false}
-                  color="orange"
-                  isLink={false}
-                  isCopy={true}
-                  onClick={() => {
-                    navigator.clipboard.writeText("hello@less3.design");
-                    alert("hello@less3.design copied to clipboard!");
-                  }}
-                />
-                <div className="px-6 py-4 h-16 bg-[#FD6D40] text-2xl font-bold text-black text-nowrap w-min select-text">
-                  hello@less3.design
-                </div>
-              </div>
-              <BlockButton active={true} color="white" isLink={false}>
-                Studio creating games and tools for the Unity engine
-              </BlockButton>
-            </>
-          )}
-          {!showAbout && (
-            <>
-              <BlockButton
-                active={false}
-                color="blue"
-                isLink={true}
-                onClick={() => {
-                  window
-                    .open(
-                      "https://assetstore.unity.com/packages/slug/295634",
-                      "_blank"
-                    )
-                    .focus();
-                }}
-              >
-                ASSET STORE
-              </BlockButton>
-              <BlockButton active={true} color="white" isLink={false}>
-                Leave notes and comments on Unity scenes
-              </BlockButton>
-            </>
-          )}
-        </div>
-
-        {/* Temp under cunstruction
-        <div className="absolute inset-0 text-white flex items-center justify-center pointer-events-none gap-0">
-          <div className="flex gap-2 bg-[#FBFF33]/30 backdrop-blur-3xl items-center justify-center px-0 py-2">
-            <Heart className="h-4 fill-[#FBFF33]" />
-            <div className="font-bold text-xl text-[#FBFF33]">
-              Site Under Construction
+          <div className="bg-less3-pink text-less3-gray text-[64px] px-6 py-0 flex justify-center items-center">
+            LESS3
+            <div className="bg-less3-gray text-less3-pink text-[24px] h-[48px] font-bold flex justify-center items-center p-[8px] ml-4">
+              VIDEO GAMES
             </div>
-            <Heart className="h-4 fill-[#FBFF33]" />
+          </div>
+          <div className="flex">
+            <BlockButton
+              onClick={() => {
+                navigator.clipboard.writeText("hello@less3.design");
+                alert("hello@less3.design copied to clipboard!");
+              }}
+            />
+            <div className="bg-less3-gray/50 px-6 py-4 h-16 text-[24px] font-bold text-less3-pink text-nowrap w-min select-text flex items-center justify-center drop-shadow-[0_0_35px_#FF8DFD80] backdrop-blur-3xl bg-white/10">
+              GET IN TOUCH
+            </div>
           </div>
         </div>
-              */}
 
         {/* Enter animation stuff below */}
         <div className="absolute inset-0 animate-blurFade pointer-events-none"></div>
         {/* black fill animation*/}
         <div className="absolute left-[-4px] right-[-4px] bottom-[-4px] top-[-4px] opacity-0 bg-black animate-containerBlack pointer-events-none"></div>
         {/* <Heart className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] h-[128px] opacity-0 origin-center w-fit animate-heartEnter"></Heart>*/}
-        <div className="absolute inset-0 text-white flex items-center opacity-0 justify-center pointer-events-none animate-hideAfter gap-2">
-          <Heart className="h-8 fill-white" />
-          <div className="font-bold text-4xl">LESS 3</div>
+        <div className="absolute inset-0 text-less3-pink flex items-center opacity-0 justify-center pointer-events-none animate-hideAfter gap-2">
+          <Heart className="h-8 fill-less3-pink" />
+          <div className="font-bold text-4xl">LESS3</div>
         </div>
-        <div className="absolute left-[-4px] right-[-4px] bottom-[-4px] top-[-4px] opacity-0 bg-white animate-whiteFlash delay-1000 pointer-events-none"></div>
-        <div className="absolute inset-0 border-4 rounded-[36px] border-dotted border-white/40 opacity-0 drop-shadow-[0_0_8px_rgba(255,255,255,.5)] animate-containerWhite pointer-events-none"></div>
+        <div className="absolute left-[-4px] right-[-4px] bottom-[-4px] top-[-4px] opacity-0 bg-less3-pink animate-whiteFlash delay-1000 pointer-events-none"></div>
       </div>
     </div>
   );
