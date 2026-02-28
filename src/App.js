@@ -1,19 +1,47 @@
 import "./App.css";
 import BlockButton from "./Components/BlockButton";
 import { ReactComponent as Heart } from "./Less3Heart.svg";
-import React, { useState } from "react";
+import React from "react";
+import ParallaxImage from "./Components/ParallaxImage";
 
 function App() {
   return (
     <div className="App">
-      <div className="m-8 rounded-[0px] bg-black absolute left-0 right-0 top-0 bottom-0 overflow-clip animate-containerEnter">
+      <div className="m-4 rounded-[0px] bg-black absolute left-0 right-0 top-0 bottom-0 overflow-clip animate-containerEnter">
         {/* BG image*/}
-        <img
-          src={"bg.jpg"}
-          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite"
-        ></img>
+        <ParallaxImage
+          strength={3}
+          src={"bg_b.jpg"}
+          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite select-none"
+        />
+
+        <ParallaxImage
+          strength={10}
+          src={"bg_f.png"}
+          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite select-none"
+        />
+
+        <ParallaxImage
+          strength={20}
+          src={"bg_sf.png"}
+          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite blur-[1px] select-none"
+        />
+
+        <ParallaxImage
+          strength={30}
+          src={"bg_ssf.png"}
+          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite blur-[16px] select-none"
+        />
+
+        <ParallaxImage
+          strength={40}
+          src={"bg_flare.png"}
+          className="absolute w-full h-full shrink-0 object-cover animate-containerWhite blur-[32px] select-none"
+          style={{ mixBlendMode: "screen" }}
+        />
 
         {/* Little corner bits*/}
+        <div className="absolute left-0 bottom-0 w-[24px] h-[24px] bg-black"></div>
         <div className="absolute left-0 bottom-0 w-[16px] h-[8px] bg-less3-pink"></div>
         <div className="absolute left-0 bottom-0 w-[8px] h-[16px] bg-less3-pink"></div>
 
