@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      colors: {
+        "less3-pink": "#FF8DFD",
+        "less3-gray": "#2D2D2D",
+      },
       animation: {
         containerEnter: "enter 1.35s cubic-bezier(0.87, 0, 0.13, 1)",
         blurFade: "blurFade 1.5s cubic-bezier(0.87, 0, 0.13, 1)",
