@@ -24,7 +24,7 @@ function App() {
         {/* BG image*/}
         <ParallaxImage
           strength={3}
-          src={"bg_b.jpg"}
+          src={"bg_b.png"}
           className="absolute w-full h-full shrink-0 object-cover animate-containerWhite select-none"
         />
 
